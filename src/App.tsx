@@ -34,18 +34,18 @@ particle.setERC4337({
 
 const App = () => {
   const [userInfo, setUserInfo] = useState(null);
-  const [ethBalance, setEthBalance] = useState(null);
+  const [balance, setBalance] = useState(null);
 
   useEffect(() => {
     if (userInfo) {
-      fetchEthBalance();
+      fetchBalance();
     }
   }, [userInfo]);
 
-  const fetchEthBalance = async () => {
+  const fetchBalance = async () => {
     const address = await smartAccount.getAddress();
     const balance = await customProvider.getBalance(address);
-    setEthBalance(ethers.utils.formatEther(balance));
+    setBalance(ethers.utils.formatEther(balance));
   };
 
   const handleLogin = async (preferredAuthType) => {
@@ -75,7 +75,7 @@ const App = () => {
         <div>
           <h2>{userInfo.name}</h2>
           <div>
-            <small>{ethBalance} ETH</small>
+            <small>{balance}</small>
             <button onClick={executeUserOp}>Execute User Operation</button>
           </div>
         </div>
