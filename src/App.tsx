@@ -75,7 +75,7 @@ const App = () => {
         <div>
           <h2>{userInfo.name}</h2>
           <div>
-            <small>{balance}</small>
+            <small>{balance} ASTR</small>
             <button onClick={executeUserOp}>Execute User Operation</button>
           </div>
         </div>
